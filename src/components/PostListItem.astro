@@ -9,9 +9,15 @@ export type Props = {
 const { name, description, date, attr } = Astro.props;
 ---
 
-<li>
-  <div>
-    <img src={attr}>
+<li class:list={[
+  'p-8',
+  'mb-24',
+  'text-neutral-700',
+  'shadow-sm',
+  'rounded-md'
+]}>
+  <div >
+    <img class="rounded-sm" src={attr}>
   </div>
   <p>{description}</p>
   <div>

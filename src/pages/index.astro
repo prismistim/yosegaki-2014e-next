@@ -1,15 +1,37 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PostListItem from '../components/PostListItem.astro';
+import PostListItem from '@components/PostListItem.astro';
+import type { Props as PostItemProps } from '@components/PostListItem.astro'
+import Layout from '@layouts/Layout.astro';
 
-const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=Z_l42m_AK0pKkte4rtOi_zulHp-8rwsCxVCsKe8o9uHAkFzy2cV7HnaEJCyu1_ket_9mw4x-vGO9TwerEKZdmKj2e0O-55QVm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnKTlU8o-ISOnRed2z6KYd9msUiuys_VwEeIRM3fq-82JaIcPYiYgA4sYZpTak_o22Q&lib=MCBe-Y-Uo9wGPJSIi4--OZQa_c_o8YQ-H'
-const res = await fetch(URL)
----
+const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=e0PKG1I5IPsrhKk0d2jh9ZnNOTIebtxz49Rx2JzSDnIhfp4yHL3KJ4wt8Jh1HQ70Fq2G3xJ8nqD2CYodCoKCSQsi-O6Ozql5m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFNbkOceDnPHFBnNk1UPZbNWQGH57fWSl8OY9unAKxrIAdKgAd9S556Q-OZpeH2SFg8umS5l7vAg&lib=Meg9JOxqZCQAA69xem2NNfLLjlo-8rAjh'
+const res = await fetch(URL);
+const posts: PostItemProps[] = await res.json()
 
-<Layout title="Welcome to Astro.">
-{
-	res.body.map((item) => (
-		<PostListItem name ></PostListItem>
-	))
+const formatedPosts = () => {
+	const driveUrl = 'http://drive.google.com/uc?export=view&id='
+
+	return posts.map((item) => {
+		let url = ''
+
+		if (item.attr) {
+			url = driveUrl + item.attr.split('=')[1]
+		}
+
+		return {
+			name: item.name,
+			date: item.date,
+			attr: url,
+			description: item.description,
+		}
+	})
 }
+---
+<Layout>
+	<ul class="sm:columns-2 gap-x-8">
+		{
+			formatedPosts().map((item: PostItemProps) => (
+				<PostListItem name={item.name} attr={item.attr} date={item.date} description={item.description} ></PostListItem>
+			))
+		}
+	</ul>
 </Layout>
