@@ -1,14 +1,16 @@
 {
-  // ...
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
   "extends": [
-    // ...
     "plugin:astro/recommended",
-    "plugin:vue/vue3-recommended",
-    "@vue/typescript/recommended",
-    "@nuxtjs/eslint-config-typescript",
-    "@vue/prettier"
+    "prettier"
   ],
-  // ...
   "overrides": [
     {
       // Define the configuration for `.astro` file.
@@ -19,13 +21,12 @@
       // It's the setting you need when using TypeScript.
       "parserOptions": {
         "parser": "@typescript-eslint/parser",
-        "extraFileExtensions": [".astro"]
+        "extraFileExtensions": [".astro"],
       },
       "rules": {
         // override/add rules settings here, such as:
         // "astro/no-set-html-directive": "error"
       }
     }
-    // ...
   ]
 }
