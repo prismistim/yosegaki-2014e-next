@@ -1,0 +1,10 @@
+{
+  "cSpell.words": [
+    "astro",
+    "astrojs"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

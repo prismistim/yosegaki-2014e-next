@@ -1,0 +1,21 @@
+---
+export type Props = {
+  name: string
+  description: string
+  date: string
+  attr: string
+}
+
+const { name, description, date, attr } = Astro.props;
+---
+
+<li>
+  <div>
+    <img src={attr}>
+  </div>
+  <p>{description}</p>
+  <div>
+    <span>{name}</span>
+    <span>{date}</span>
+  </div>
+</li>
