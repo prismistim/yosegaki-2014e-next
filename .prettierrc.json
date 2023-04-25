@@ -1,9 +1,10 @@
 {
-  "trailingComma":"none",
+  "trailingComma": "none",
   "semi": false,
   "singleQuote": true,
   "plugins": [
     "prettier-plugin-astro",
-    "prettier-plugin-tailwind"
-  ]
+    "prettier-plugin-tailwindcss"
+  ],
+  "pluginSearchDirs": false
 }
