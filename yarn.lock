@@ -613,6 +613,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/kiwi-maru@npm:^4.5.14":
+  version: 4.5.14
+  resolution: "@fontsource/kiwi-maru@npm:4.5.14"
+  checksum: 0d7f4c8928fe98affe2f4bf4214bdb70fdae34067b8b058426c2fcedd76db568d6d7696f0f4bd51a18abdb70b0a21216f774d512cc8e57be7f35bf0c5f9a177c
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -1196,7 +1203,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:^2.1.3":
+"astro@npm:^2.2.2":
   version: 2.3.0
   resolution: "astro@npm:2.3.0"
   dependencies:
@@ -1696,6 +1703,13 @@ __metadata:
   bin:
     cssesc: bin/cssesc
   checksum: f8c4ababffbc5e2ddf2fa9957dda1ee4af6048e22aeda1869d0d00843223c1b13ad3f5d88b51caa46c994225eacb636b764eb807a8883e2fb6f99b4f4e8c48b2
+  languageName: node
+  linkType: hard
+
+"dayjs@npm:^1.11.7":
+  version: 1.11.7
+  resolution: "dayjs@npm:1.11.7"
+  checksum: 5003a7c1dd9ed51385beb658231c3548700b82d3548c0cfbe549d85f2d08e90e972510282b7506941452c58d32136d6362f009c77ca55381a09c704e9f177ebb
   languageName: node
   linkType: hard
 
@@ -5848,9 +5862,11 @@ __metadata:
   resolution: "yosegaki-2014e-next@workspace:."
   dependencies:
     "@astrojs/tailwind": ^3.1.1
+    "@fontsource/kiwi-maru": ^4.5.14
     "@types/node": ^18.16.0
     "@typescript-eslint/parser": ^5.59.0
-    astro: ^2.1.3
+    astro: ^2.2.2
+    dayjs: ^1.11.7
     eslint: ^8.36.0
     eslint-config-prettier: ^8.8.0
     eslint-plugin-astro: ^0.26.1

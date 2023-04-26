@@ -1,4 +1,6 @@
 ---
+import dayjs from 'dayjs'
+
 export type Props = {
   name: string
   description: string
@@ -6,22 +8,22 @@ export type Props = {
   attr: string
 }
 
-const { name, description, date, attr } = Astro.props;
+const { name, description, date, attr } = Astro.props
 ---
 
-<li class:list={[
-  'p-8',
-  'mb-24',
-  'text-neutral-700',
-  'shadow-sm',
-  'rounded-md'
-]}>
-  <div >
-    <img class="rounded-sm" src={attr}>
+<li
+  class="relative p-0 mb-8 text-neutral-700 shadow-md rounded-md overflow-hidden"
+>
+  {
+    attr && <div class="flex justify-center bg-neutral-50">
+      <img src={attr} class="max-h-80 w-auto">
+    </div>
+  }
+  <div class="p-8 relative">
+    <p class="">{description}</p>
   </div>
-  <p>{description}</p>
-  <div>
+  <div class="px-8 pb-8 flex items-end justify-between text-neutral-400">
     <span>{name}</span>
-    <span>{date}</span>
+    <span>{dayjs(date).format('YYYY-MM-DD HH:mm:ss')}</span>
   </div>
 </li>

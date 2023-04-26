@@ -1,37 +1,71 @@
 ---
-import PostListItem from '@components/PostListItem.astro';
+import PostListItem from '@components/PostListItem.astro'
 import type { Props as PostItemProps } from '@components/PostListItem.astro'
-import Layout from '@layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro'
 
-const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=e0PKG1I5IPsrhKk0d2jh9ZnNOTIebtxz49Rx2JzSDnIhfp4yHL3KJ4wt8Jh1HQ70Fq2G3xJ8nqD2CYodCoKCSQsi-O6Ozql5m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFNbkOceDnPHFBnNk1UPZbNWQGH57fWSl8OY9unAKxrIAdKgAd9S556Q-OZpeH2SFg8umS5l7vAg&lib=Meg9JOxqZCQAA69xem2NNfLLjlo-8rAjh'
-const res = await fetch(URL);
+const res = await fetch(import.meta.env.API_URL)
 const posts: PostItemProps[] = await res.json()
 
 const formatedPosts = () => {
-	const driveUrl = 'http://drive.google.com/uc?export=view&id='
+  const driveFileUrl = 'https://drive.google.com/uc?export=view&id='
 
-	return posts.map((item) => {
-		let url = ''
+  return posts.map((item) => {
+    let url = ''
 
-		if (item.attr) {
-			url = driveUrl + item.attr.split('=')[1]
-		}
+    if (item.attr) {
+      url = driveFileUrl + item.attr.split('=')[1]
+    }
 
-		return {
-			name: item.name,
-			date: item.date,
-			attr: url,
-			description: item.description,
-		}
-	})
+    return {
+      name: item.name,
+      date: item.date,
+      attr: url,
+      description: item.description
+    }
+  })
 }
 ---
+
 <Layout>
-	<ul class="sm:columns-2 gap-x-8">
-		{
-			formatedPosts().map((item: PostItemProps) => (
-				<PostListItem name={item.name} attr={item.attr} date={item.date} description={item.description} ></PostListItem>
-			))
-		}
-	</ul>
+  <div class="px-8 lg:px-0">
+    <h1 class="text-lg font-semibold py-8">yosegaki-2014e</h1>
+    <div class="mx-auto">
+      <div class="my-8 grid md:grid-cols-2 gap-x-8">
+        {
+          formatedPosts().length === posts.length ? (
+            <ul>
+              {formatedPosts().filter((item, index) => index % 2 === 0).map((item: PostItemProps) => (
+                <PostListItem
+                  name={item.name}
+                  attr={item.attr}
+                  date={item.date}
+                  description={item.description}
+                />
+              ))}
+            </ul>
+          ) : (
+            <div />
+          )
+        }
+        {
+          formatedPosts().length === posts.length ? (
+            <ul>
+              {formatedPosts().filter((item, index) => index % 2 !== 0).map((item: PostItemProps) => (
+                <PostListItem
+                  name={item.name}
+                  attr={item.attr}
+                  date={item.date}
+                  description={item.description}
+                />
+              ))}
+            </ul>
+          ) : (
+            <div />
+          )
+        }
+      </div>
+    </div>
+  </div>
+  
+    
 </Layout>
