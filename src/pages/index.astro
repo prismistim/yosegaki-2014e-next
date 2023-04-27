@@ -28,44 +28,54 @@ const formatedPosts = () => {
 
 <Layout>
   <div class="px-8 lg:px-0">
-    <h1 class="text-lg font-semibold py-8">yosegaki-2014e</h1>
+    <h1 class="py-8 text-lg font-semibold">yosegaki-2014e</h1>
     <div class="mx-auto">
-      <div class="my-8 grid md:grid-cols-2 gap-x-8">
-        {
-          formatedPosts().length === posts.length ? (
-            <ul>
-              {formatedPosts().filter((item, index) => index % 2 === 0).map((item: PostItemProps) => (
+      <div>
+        <ul class="my-8 md:hidden">
+          {
+            formatedPosts()
+              .filter((item, index) => index % 2 === 0)
+              .map((item: PostItemProps) => (
                 <PostListItem
                   name={item.name}
                   attr={item.attr}
                   date={item.date}
                   description={item.description}
                 />
-              ))}
-            </ul>
-          ) : (
-            <div />
-          )
-        }
-        {
-          formatedPosts().length === posts.length ? (
-            <ul>
-              {formatedPosts().filter((item, index) => index % 2 !== 0).map((item: PostItemProps) => (
+              ))
+          }
+        </ul>
+      </div>
+      <div class="my-8 hidden gap-x-8 md:grid md:grid-cols-2">
+        <ul>
+          {
+            formatedPosts()
+              .filter((item, index) => index % 2 === 0)
+              .map((item: PostItemProps) => (
                 <PostListItem
                   name={item.name}
                   attr={item.attr}
                   date={item.date}
                   description={item.description}
                 />
-              ))}
-            </ul>
-          ) : (
-            <div />
-          )
-        }
+              ))
+          }
+        </ul>
+        <ul>
+          {
+            formatedPosts()
+              .filter((item, index) => index % 2 !== 0)
+              .map((item: PostItemProps) => (
+                <PostListItem
+                  name={item.name}
+                  attr={item.attr}
+                  date={item.date}
+                  description={item.description}
+                />
+              ))
+          }
+        </ul>
       </div>
     </div>
   </div>
-  
-    
 </Layout>
