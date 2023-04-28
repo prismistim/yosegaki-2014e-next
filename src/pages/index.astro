@@ -34,7 +34,6 @@ const formatedPosts = () => {
         <ul class="my-8 md:hidden">
           {
             formatedPosts()
-              .filter((item, index) => index % 2 === 0)
               .map((item: PostItemProps) => (
                 <PostListItem
                   name={item.name}
