@@ -12,7 +12,7 @@ const formatedPosts = () => {
   return posts.map((item) => {
     let url = ''
 
-    if (item.attr) {
+    if (item.attr !== '') {
       url = driveFileUrl + item.attr.split('=')[1]
     }
 

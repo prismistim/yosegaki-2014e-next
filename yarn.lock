@@ -613,10 +613,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/kiwi-maru@npm:^4.5.14":
-  version: 4.5.14
-  resolution: "@fontsource/kiwi-maru@npm:4.5.14"
-  checksum: 0d7f4c8928fe98affe2f4bf4214bdb70fdae34067b8b058426c2fcedd76db568d6d7696f0f4bd51a18abdb70b0a21216f774d512cc8e57be7f35bf0c5f9a177c
+"@fontsource/dotgothic16@npm:^4.5.10":
+  version: 4.5.10
+  resolution: "@fontsource/dotgothic16@npm:4.5.10"
+  checksum: 4c0a391ef21d365a4616f4437ed47d3d0c2082f70f52043a505fe23f699e9bb7acf9659ce7d717396cf85a21ba50414cd13b2ac08996b4421ea492a3c781f1b5
   languageName: node
   linkType: hard
 
@@ -5862,7 +5862,7 @@ __metadata:
   resolution: "yosegaki-2014e-next@workspace:."
   dependencies:
     "@astrojs/tailwind": ^3.1.1
-    "@fontsource/kiwi-maru": ^4.5.14
+    "@fontsource/dotgothic16": ^4.5.10
     "@types/node": ^18.16.0
     "@typescript-eslint/parser": ^5.59.0
     astro: ^2.2.2

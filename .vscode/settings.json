@@ -6,6 +6,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "prettier.documentSelectors": ["**/*.astro"],
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  }
 }
