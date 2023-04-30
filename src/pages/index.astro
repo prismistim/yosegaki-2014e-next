@@ -30,7 +30,7 @@ const formatedPosts = () => {
   <div class="px-8 lg:px-0">
     <div class="mx-auto">
       <div>
-        <ul class="my-8 md:hidden">
+        <ul class="my-8 lg:hidden">
           {
             formatedPosts().map((item: PostItemProps) => (
               <PostListItem
@@ -43,7 +43,7 @@ const formatedPosts = () => {
           }
         </ul>
       </div>
-      <div class="my-8 hidden gap-x-8 md:grid md:grid-cols-2">
+      <div class="my-8 hidden gap-x-8 lg:grid lg:grid-cols-2">
         <ul>
           {
             formatedPosts()
