@@ -1,5 +1,6 @@
 ---
 import dayjs from 'dayjs'
+import timezone from 'dayjs/plugin/timezone'
 
 export type Props = {
   name: string
@@ -9,6 +10,9 @@ export type Props = {
 }
 
 const { name, description, date, attr } = Astro.props
+
+dayjs.extend(timezone)
+dayjs.tz.setDefault('Asia/Tokyo')
 ---
 
 <li
