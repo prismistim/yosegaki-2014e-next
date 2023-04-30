@@ -28,20 +28,18 @@ const formatedPosts = () => {
 
 <Layout>
   <div class="px-8 lg:px-0">
-    <h1 class="py-8 text-lg font-semibold">yosegaki-2014e</h1>
     <div class="mx-auto">
       <div>
         <ul class="my-8 md:hidden">
           {
-            formatedPosts()
-              .map((item: PostItemProps) => (
-                <PostListItem
-                  name={item.name}
-                  attr={item.attr}
-                  date={item.date}
-                  description={item.description}
-                />
-              ))
+            formatedPosts().map((item: PostItemProps) => (
+              <PostListItem
+                name={item.name}
+                attr={item.attr}
+                date={item.date}
+                description={item.description}
+              />
+            ))
           }
         </ul>
       </div>

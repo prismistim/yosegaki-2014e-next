@@ -1,4 +1,5 @@
 ---
+import SiteHeader from '@components/SiteHeader.astro'
 import '@fontsource/dotgothic16'
 ---
 
@@ -7,18 +8,21 @@ import '@fontsource/dotgothic16'
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <title>yosegaki-2014e</title>
   </head>
-  <body class="container mx-auto">
-    <div class="mx-auto mt-4 max-w-5xl">
-      <slot />
+  <body>
+    <div class="container mx-auto">
+      <div class="mx-auto mt-4 max-w-5xl">
+        <SiteHeader />
+        <slot />
+      </div>
     </div>
   </body>
 </html>
 
 <style>
   body {
-    font-family: "DotGothic16", sans-serif;
+    font-family: 'DotGothic16', sans-serif;
   }
 </style>

@@ -12,24 +12,20 @@ const { name, description, date, attr } = Astro.props
 ---
 
 <li
-  class="relative p-0 mb-8 text-neutral-700 border rounded-md overflow-hidden"
+  class="relative mb-8 overflow-hidden rounded-md border p-0 text-neutral-700"
 >
   {
-    attr && <div class="flex justify-center bg-neutral-50">
-      <img src={attr} class="max-h-80 w-auto" alt="" >
-    </div>
+    attr && (
+      <div class="flex justify-center bg-neutral-50">
+        <img src={attr} class="max-h-80 w-auto" alt="" />
+      </div>
+    )
   }
-  <div class="p-8 relative">
+  <div class="relative p-8">
     <p class="">{description}</p>
   </div>
-  <div class="px-8 pb-8 flex items-end justify-between text-neutral-400 meta-info">
+  <div class="flex items-end justify-between px-8 pb-8 text-neutral-400">
     <span>{name}</span>
     <span>{dayjs(date).format('YYYY-MM-DD HH:mm:ss')}</span>
   </div>
 </li>
-
-<style>
-  .meta-info {
-    font-family: "DotGothic16", sans-serif;
-  }  
-</style>
