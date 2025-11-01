@@ -13,6 +13,8 @@ const { name, description, date, attr } = Astro.props
 
 dayjs.extend(timezone)
 dayjs.tz.setDefault('Asia/Tokyo')
+
+const jstDate = dayjs(date).tz('Asia/Tokyo').format('YYYY-MM-DD HH:mm:ss')
 ---
 
 <li
@@ -30,6 +32,6 @@ dayjs.tz.setDefault('Asia/Tokyo')
   </div>
   <div class="flex items-end justify-between px-8 pb-8 text-neutral-400">
     <span>{name}</span>
-    <span>{dayjs(date).tz('Asia/Tokyo').format('YYYY-MM-DD HH:mm:ss')}</span>
+    <span>{jstDate}</span>
   </div>
 </li>
