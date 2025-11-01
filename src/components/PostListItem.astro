@@ -30,6 +30,6 @@ dayjs.tz.setDefault('Asia/Tokyo')
   </div>
   <div class="flex items-end justify-between px-8 pb-8 text-neutral-400">
     <span>{name}</span>
-    <span>{dayjs(date).format('YYYY-MM-DD HH:mm:ss')}</span>
+    <span>{dayjs(date).tz('Asia/Tokyo').format('YYYY-MM-DD HH:mm:ss')}</span>
   </div>
 </li>
