@@ -7,13 +7,11 @@ const res = await fetch(import.meta.env.API_URL)
 const posts: PostItemProps[] = await res.json()
 
 const formatedPosts = () => {
-  const driveFileUrl = 'https://drive.google.com/uc?export=view&id='
-
   return posts.map((item) => {
     let url = ''
 
     if (item.attr !== '') {
-      url = driveFileUrl + item.attr.split('=')[1]
+      url = `https://drive.google.com/thumbnail?id=${item.attr.split('=')[1]}&sz=w1024` 
     }
 
     return {
