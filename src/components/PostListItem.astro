@@ -1,5 +1,6 @@
 ---
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc.js';
 import timezone from 'dayjs/plugin/timezone'
 
 export type Props = {
@@ -11,10 +12,11 @@ export type Props = {
 
 const { name, description, date, attr } = Astro.props
 
+dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.tz.setDefault('Asia/Tokyo')
 
-const jstDate = dayjs(date).tz('Asia/Tokyo').format('YYYY-MM-DD HH:mm:ss')
+const jstDate = dayjs.utc(date).tz().format('YYYY-MM-DD HH:mm:ss')
 ---
 
 <li
